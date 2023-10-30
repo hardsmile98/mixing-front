@@ -95,6 +95,10 @@ textarea {
   overflow: auto;
 }
 
+a {
+  transition: 0.3s all ease;
+}
+
 * {
   margin: 0;
   padding: 0;

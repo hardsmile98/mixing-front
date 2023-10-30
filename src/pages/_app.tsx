@@ -1,7 +1,9 @@
 import React from 'react';
 import 'assets/styles/normalize.css';
+import 'assets/styles/fonts.css';
+import 'assets/styles/theme.css';
 import type { AppProps } from 'next/app';
-import { Layout } from '@components/index';
+import { Layout, Header } from '@components/index';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -10,6 +12,8 @@ export default function App({ Component, pageProps }: AppProps) {
       description="LEPRO MIXER - BEST CRYPTO MIXER"
       keywords="LEPRO, CRYPTO MIXER, BETST BITCOIN MIXER"
     >
+      <Header />
+
       <Component {...pageProps} />
     </Layout>
   );

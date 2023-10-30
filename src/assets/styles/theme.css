@@ -1,0 +1,24 @@
+:root {
+    --font-family: "Inter, sans-serif";
+
+    --fs: 16px;
+    --fs-small: 0.75rem;
+
+    --white: #fff;
+    --grey: #8e9396;
+
+    --primary: #fbca1c;
+    --primary-hover: #fcd64e;
+
+    --bg: #020201;
+    --bg1: #161616;
+
+    --uint: 8px;
+}
+
+body {
+    font-size: var(--fs);
+    font-family: "Inter";
+    background-color: var(--bg);
+    color: var(--white);
+}

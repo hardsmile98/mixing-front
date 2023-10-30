@@ -1,0 +1,53 @@
+.root {
+    background-color: var(--bg1);
+}
+
+.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--uint) * 2) 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-right: calc(var(--uint) * 1);
+}
+
+.logo a {
+    display: flex;
+}
+
+.logo p {
+    font-size: var(--fs-small);
+    max-width: 140px;
+    margin-left: calc(var(--uint) * 3);
+    color: var(--grey);
+}
+
+.menu {
+    display: flex;
+    background-color: var(--bg);
+    border: calc(var(--uint) * 0.5) solid transparent;
+    border-radius: 100px;
+}
+
+.menu > li > a {
+    display: block;
+    padding: var(--uint) calc(var(--uint) * 2);
+    border-radius: 100px;
+    color: var(--white);
+}
+
+.menu > li > a:hover {
+    background-color: var(--bg1);
+}
+
+.menu > li:not(:last-of-type){
+    margin-right: calc(var(--uint) * 0.5);
+}
+
+.active > a {
+    background-color: var(--bg1);
+}
