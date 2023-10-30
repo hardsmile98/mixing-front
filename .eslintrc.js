@@ -28,5 +28,6 @@ module.exports = {
     'react/no-unescaped-entities': 'off',
     'react/no-array-index-key': "off",
     'import/no-extraneous-dependencies': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
   },
 };

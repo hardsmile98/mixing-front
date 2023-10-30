@@ -1,7 +1,8 @@
 :root {
     --font-family: "Inter, sans-serif";
 
-    --fs: 16px;
+    --body1: 16px;
+    --body2: 0.875rem;
     --fs-small: 0.75rem;
 
     --white: #fff;
@@ -17,8 +18,22 @@
 }
 
 body {
-    font-size: var(--fs);
+    font-size: var(--body1);
     font-family: "Inter";
     background-color: var(--bg);
     color: var(--white);
+}
+
+html, body {
+    height: 100%;
+}
+
+#__next {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
 }

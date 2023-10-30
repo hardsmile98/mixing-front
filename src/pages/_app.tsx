@@ -3,7 +3,7 @@ import 'assets/styles/normalize.css';
 import 'assets/styles/fonts.css';
 import 'assets/styles/theme.css';
 import type { AppProps } from 'next/app';
-import { Layout, Header } from '@components/index';
+import { Layout, Header, Footer } from '@components/index';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -14,7 +14,11 @@ export default function App({ Component, pageProps }: AppProps) {
     >
       <Header />
 
-      <Component {...pageProps} />
+      <main>
+        <Component {...pageProps} />
+      </main>
+
+      <Footer />
     </Layout>
   );
 }

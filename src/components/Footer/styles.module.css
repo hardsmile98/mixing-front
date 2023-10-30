@@ -1,0 +1,16 @@
+.root {
+    background-color: var(--bg1);
+}
+
+.wrap {
+    color: var(--grey);
+    font-size: var(--body2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--uint) * 2) 0;
+}
+
+.scroll:hover {
+    color: var(--white);
+}
