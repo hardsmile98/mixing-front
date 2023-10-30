@@ -1,9 +1,12 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Container from 'components/Container';
 import Link from 'next/link';
 import styles from './styles.module.css';
 
 function Footer() {
+  const router = useRouter();
+
   return (
     <footer
       id="footer"
@@ -18,7 +21,7 @@ function Footer() {
 
           <Link
             className={styles.scroll}
-            href="#"
+            href={router.pathname}
           >
             Scroll to up
           </Link>
