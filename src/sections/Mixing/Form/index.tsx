@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './styles.module.css';
+import UserPath from './UserPath';
 import Steps from './Steps';
+import styles from './styles.module.css';
 
 function Form() {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => e.preventDefault();
@@ -10,7 +11,11 @@ function Form() {
       onSubmit={onSubmit}
       className={styles.form}
     >
-      <div>
+      <div className={styles.path}>
+        <UserPath />
+      </div>
+
+      <div className={styles.steps}>
         <Steps />
       </div>
     </form>

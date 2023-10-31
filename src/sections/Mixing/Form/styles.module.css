@@ -1,5 +1,15 @@
 .form {
     background-color: var(--bg1);
     border-radius: var(--uint);
-    padding: calc(var(--uint) * 3);
+    padding: calc(var(--uint) * 5);
+}
+
+.path {
+    margin-bottom: calc(var(--uint) * 4);
+}
+
+@media only screen and (max-width: 600px) {
+    .form {
+        padding: calc(var(--uint) * 3);
+    }
 }

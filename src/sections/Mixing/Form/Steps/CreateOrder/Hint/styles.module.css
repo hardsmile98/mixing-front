@@ -1,0 +1,18 @@
+.root {
+    color: var(--grey);
+    padding: calc(var(--uint) * 2);
+    border-radius: calc(var(--uint) * 1);
+    background: var(--bg);
+    font-size: var(--body2);
+}
+
+.root span {
+    color: var(--primary);
+}
+
+.root svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary);
+    vertical-align: middle;
+}
