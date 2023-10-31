@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import logoIcon from 'assets/images/logo.svg';
+import logoIcon from 'assets/images/logo.svg?url';
 import Container from 'components/Container';
 import Link from 'next/link';
 import Image from 'next/image';
