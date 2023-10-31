@@ -1,6 +1,5 @@
 .wrap {
     text-align: center;
-    padding: calc(var(--uint) * 10) 0;
 }
 
 .wrap h1 {

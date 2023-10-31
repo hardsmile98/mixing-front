@@ -1,10 +1,9 @@
 import React from 'react';
+import { Mixing } from '@sections/index';
 
 function Page() {
   return (
-    <div>
-      12312312
-    </div>
+    <Mixing />
   );
 }
 
