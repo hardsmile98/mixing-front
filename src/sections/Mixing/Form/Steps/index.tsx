@@ -1,17 +1,23 @@
 import React from 'react';
+import RefreshIcon from 'assets/images/icons/refresh.svg';
+import DollarIcon from 'assets/images/icons/dollar.svg';
+import SettingsIcon from 'assets/images/icons/settings.svg';
 import styles from './styles.module.css';
 
 const steps = [
   {
-    icon: '1',
+    id: 1,
+    icon: <SettingsIcon />,
     label: '1. Create order',
   },
   {
-    icon: '2',
+    id: 2,
+    icon: <DollarIcon />,
     label: '2. Send coins',
   },
   {
-    icon: '3',
+    id: 3,
+    icon: <RefreshIcon />,
     label: '3. Mixing coins',
   },
 ];
@@ -21,8 +27,8 @@ function Steps() {
     <ul className={styles.steps}>
       {steps.map((step) => (
         <li
-          key={step.label}
-          className={styles.step}
+          key={step.id}
+          className={`${styles.step} ${step.id === 1 ? styles.active : ''}`}
         >
           <div className={styles.stepIcon}>
             {step.icon}

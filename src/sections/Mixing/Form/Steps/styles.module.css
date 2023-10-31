@@ -6,12 +6,13 @@
 .step {
     width: calc(100% / 3);
     position: relative;
+    color: var(--grey);
 }
 
 .step:not(:last-of-type)::after {
     content: '';
     position: absolute;
-    top: 25px;
+    top: 24px;
     left: 50%;
     width: 100%;
     z-index: 0;
@@ -20,13 +21,31 @@
 
 .stepIcon {
     position: relative;
-    background: red;
+    background: var(--grey);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     border-radius: calc(var(--uint) * 0.5);
     margin-bottom: calc(var(--uint) * 1);
     z-index: 1;
 }
+
+.stepIcon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--bg);
+}
+
+.active {
+    color: var(--white);
+}
+
+.active .stepIcon {
+    background: var(--white);
+}
+
+.active .stepTitle {
+    font-weight: 500;
+} 
