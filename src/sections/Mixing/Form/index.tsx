@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './styles.module.css';
+import Steps from './Steps';
 
 function Form() {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => e.preventDefault();
@@ -9,7 +10,9 @@ function Form() {
       onSubmit={onSubmit}
       className={styles.form}
     >
-      12313213
+      <div>
+        <Steps />
+      </div>
     </form>
   );
 }

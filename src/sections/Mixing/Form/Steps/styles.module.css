@@ -1,0 +1,32 @@
+.steps {
+    display: flex;
+    text-align: center;
+}
+
+.step {
+    width: calc(100% / 3);
+    position: relative;
+}
+
+.step:not(:last-of-type)::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    width: 100%;
+    z-index: 0;
+    border-top: 2px dashed var(--primary);
+}
+
+.stepIcon {
+    position: relative;
+    background: red;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: calc(var(--uint) * 0.5);
+    margin-bottom: calc(var(--uint) * 1);
+    z-index: 1;
+}
