@@ -1,16 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { getPriority } from 'contants';
 import Hint from './Hint';
+import PriorityIcon from './PriorityIcon';
 import styles from './styles.module.css';
 
+const initialAddresses = [{
+  address: '',
+  delay: 0,
+  percent: 100,
+}];
+
 function CreateOrder() {
+  const [addresses, setAddresses] = useState(initialAddresses);
+  const [feePercent, setFeePercent] = useState(2);
+  const [mixCode, setMixCode] = useState('');
+
+  const priority = getPriority(feePercent);
+
   return (
     <>
       <div className={styles.hint}>
         <Hint />
       </div>
 
-      <div>
-        form
+      <div className={styles.form}>
+        <div>
+          <h5>
+            Enter receiver's bitcoin address
+          </h5>
+        </div>
+
+        <div>
+          <h5>
+            Select service fee
+          </h5>
+
+          <p className={styles.feeForAddress}>
+            + 0.0001 BTC per each address
+          </p>
+
+          <div className={styles.priority}>
+            <PriorityIcon priority={priority} />
+
+            {' The priority of the outgoing transaction: '}
+            <span>
+              {priority}
+            </span>
+          </div>
+        </div>
+
+        <div>
+          mix Code
+        </div>
       </div>
     </>
   );

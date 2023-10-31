@@ -17,6 +17,11 @@
     color: var(--grey);
 }
 
+.form {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
 @media only screen and (max-width: 600px) {
     .offer {
         margin-bottom: calc(var(--uint) * 8);

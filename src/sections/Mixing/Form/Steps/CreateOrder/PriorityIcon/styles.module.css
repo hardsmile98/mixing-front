@@ -1,0 +1,15 @@
+.root {
+    color: var(--grey);
+}
+
+.Slow rect:nth-child(1){
+    fill: #e12b68;
+}
+
+.Standart rect:nth-child(-n + 2) {
+    fill: #5f64ff;
+}
+
+.Fast {
+    color: #fbca1c;
+}

@@ -59,11 +59,11 @@ h4 {
 }
 
 h5 {
-    font-size: 28px;
+    font-size: 24px;
 }
 
 h6 {
-    font-size: 24px;
+    font-size: 18px;
 }
 
 section {
@@ -88,11 +88,11 @@ section {
     }
     
     h5 {
-        font-size: 24px;
+        font-size: 22px;
     }
     
     h6 {
-        font-size: 22px;
+        font-size: 18px;
     }
 }
 
@@ -114,11 +114,11 @@ section {
     }
     
     h5 {
-        font-size: 22px;
+        font-size: 20px;
     }
     
     h6 {
-        font-size: 18px;
+        font-size: 16px;
     }
 
     section {
