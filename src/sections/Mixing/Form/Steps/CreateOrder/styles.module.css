@@ -2,7 +2,7 @@
     margin-bottom: calc(var(--uint) * 4);
 }
 
-.form > div {
+.form > div:not(:last-of-type) {
     margin-bottom: calc(var(--uint) * 4);
 }
 
@@ -10,6 +10,10 @@
     width: 17px;
     height: 17px;
     margin-left: calc(var(--uint) * 0.5);
+}
+
+.button {
+    margin-top: calc(var(--uint) * 2);
 }
 
 .mixCode {
