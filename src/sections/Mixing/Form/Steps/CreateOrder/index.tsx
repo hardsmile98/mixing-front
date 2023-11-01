@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { getPriority } from 'contants';
-import Slider from 'rc-slider';
 import Hint from './Hint';
-import PriorityIcon from './PriorityIcon';
+import ServiceFee from './ServiceFee';
 import styles from './styles.module.css';
 
 const initialAddresses = [{
@@ -13,7 +12,7 @@ const initialAddresses = [{
 
 function CreateOrder() {
   const [addresses, setAddresses] = useState(initialAddresses);
-  const [feePercent, setFeePercent] = useState(2);
+  const [feePercent, setFeePercent] = useState<number>(1.3);
   const [mixCode, setMixCode] = useState('');
 
   const priority = getPriority(feePercent);
@@ -32,26 +31,11 @@ function CreateOrder() {
         </div>
 
         <div>
-          <h5>
-            Select service fee
-          </h5>
-
-          <p className={styles.feeForAddress}>
-            + 0.0001 BTC per each address
-          </p>
-
-          <div>
-            <Slider />
-          </div>
-
-          <div className={styles.priority}>
-            <PriorityIcon priority={priority} />
-
-            {' The priority of the outgoing transaction: '}
-            <span>
-              {priority}
-            </span>
-          </div>
+          <ServiceFee
+            priority={priority}
+            feePercent={feePercent}
+            setFeePercent={setFeePercent}
+          />
         </div>
 
         <div>

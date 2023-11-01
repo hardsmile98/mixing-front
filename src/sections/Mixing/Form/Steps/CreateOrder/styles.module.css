@@ -5,24 +5,3 @@
 .form > div {
     margin-bottom: calc(var(--uint) * 4);
 }
-
-.feeForAddress {
-    font-size: var(--body2);
-    margin-top: calc(var(--uint) * 0.5);
-    margin-bottom: calc(var(--uint) * 2);
-}
-
-.priority {
-    font-size: var(--body2);
-    margin-top: calc(var(--uint) * 2);
-}
-
-.priority svg {
-    transform: translateY(-10%);
-    vertical-align: middle;
-}
-
-.priority span {
-    font-weight: 500;
-    color: var(--primary);
-}

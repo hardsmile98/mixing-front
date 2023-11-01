@@ -6,9 +6,9 @@ const PRIORITIES = {
 
 const getPriority = (feePercent: number) => {
   switch (true) {
-    case feePercent > 1.9:
+    case feePercent >= 1.9:
       return PRIORITIES.FAST;
-    case feePercent > 1.3:
+    case feePercent >= 1.3:
       return PRIORITIES.STANDART;
     default:
       return PRIORITIES.SLOW;
