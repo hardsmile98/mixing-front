@@ -9,6 +9,7 @@
 .feeForAddress {
     font-size: var(--body2);
     margin-top: calc(var(--uint) * 0.5);
+    margin-bottom: calc(var(--uint) * 2);
 }
 
 .priority {

@@ -7,9 +7,9 @@
 }
 
 .Standart rect:nth-child(-n + 2) {
-    fill: #5f64ff;
+    fill: #f3c315;
 }
 
 .Fast {
-    color: #fbca1c;
+    color: #26cf7a;
 }

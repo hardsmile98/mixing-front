@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getPriority } from 'contants';
+import Slider from 'rc-slider';
 import Hint from './Hint';
 import PriorityIcon from './PriorityIcon';
 import styles from './styles.module.css';
@@ -38,6 +39,10 @@ function CreateOrder() {
           <p className={styles.feeForAddress}>
             + 0.0001 BTC per each address
           </p>
+
+          <div>
+            <Slider />
+          </div>
 
           <div className={styles.priority}>
             <PriorityIcon priority={priority} />

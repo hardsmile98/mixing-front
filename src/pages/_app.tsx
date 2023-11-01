@@ -1,4 +1,5 @@
 import React from 'react';
+import 'rc-slider/assets/index.css';
 import 'assets/styles/normalize.css';
 import 'assets/styles/fonts.css';
 import 'assets/styles/theme.css';
