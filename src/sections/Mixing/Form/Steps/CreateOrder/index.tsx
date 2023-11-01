@@ -46,7 +46,7 @@ function CreateOrder() {
               fullWidth
               value={mixCode}
               onChange={(e) => setMixCode(e.target.value)}
-              placeholder="mix code"
+              placeholder="Mix code"
             />
           </div>
         </div>

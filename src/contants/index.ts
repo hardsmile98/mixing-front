@@ -19,6 +19,7 @@ const initialAddresses = [{
   address: '',
   delay: 0,
   percent: 100,
+  error: false,
 }];
 
 export {

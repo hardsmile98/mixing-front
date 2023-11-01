@@ -1,0 +1,80 @@
+.minimum {
+    font-size: var(--body2);
+    margin-top: calc(var(--uint) * 0.5);
+}
+
+.addresses {
+    margin-top: calc(var(--uint) * 2);
+    margin-bottom: calc(var(--uint) * 2);
+}
+
+.addresses > div:not(:last-of-type) {
+    margin-bottom: calc(var(--uint) * 1);
+}
+
+.addressWrap {
+    display: flex;
+    gap: var(--uint)
+}
+
+.addressActions {
+    display: flex;
+    align-items: center;
+    max-width: 200px;
+    min-width: 200px;
+    gap: var(--uint)
+}
+
+.addressStats {
+    min-height: 45px;
+    font-weight: 500;
+    font-size: var(--body2);
+    border-radius: var(--uint);
+    background: var(--bg);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    padding: 0 calc(var(--uint) * 2);
+}
+
+.delay {
+    text-align: center;
+    min-width: 50px;
+    margin-right: var(--uint);
+    padding-right: var(--uint);
+    border-right: 1px solid var(--white);
+}
+
+.percent {
+    min-width: 50px;
+    text-align: center;
+}
+
+.addButton svg {
+    width: 20px;
+    height: 20px;
+}
+
+.delete {
+    transition: 0.3s all ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    color: var(--delete);
+    background: transparent;
+}
+
+.delete:hover {
+    background-color: var(--delete-hover);
+}
+
+.delete svg {
+    width: 28px;
+    height: 28px;
+}

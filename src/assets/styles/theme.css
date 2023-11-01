@@ -10,6 +10,8 @@
     --grey: #8e9396;
     --disabled: #575757;
     --error: #ff4141;
+    --delete: #E44479;
+    --delete-hover: rgba(228,68,121, 0.1);
 
     --primary: #fbca1c;
     --primary-hover: #fcd64e;

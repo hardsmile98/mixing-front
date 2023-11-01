@@ -11,6 +11,7 @@ interface Props {
   label?: string
   error?: boolean
   errorMessage?: string
+  className?: string
 }
 
 function Input({
@@ -23,9 +24,10 @@ function Input({
   label,
   error,
   errorMessage,
+  className,
 }: Props) {
   return (
-    <label htmlFor={label}>
+    <label htmlFor={label} className={`${fullWidth ? styles.fullWidth : ''}`}>
       {label && (
         <p className={styles.label}>
           {label}
@@ -34,7 +36,7 @@ function Input({
 
       <input
         id={label}
-        className={`${styles.root} ${fullWidth ? styles.fullWidth : ''} ${error ? styles.error : ''}`}
+        className={`${styles.root} ${fullWidth ? styles.fullWidth : ''} ${error ? styles.error : ''} ${className || ''}`}
         type={type}
         disabled={disabled}
         placeholder={placeholder}
@@ -42,7 +44,7 @@ function Input({
         value={value}
       />
 
-      {errorMessage && (
+      {errorMessage && error && (
         <p className={styles.errorMessage}>
           {errorMessage}
         </p>
