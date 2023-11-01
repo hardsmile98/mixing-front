@@ -1,16 +1,11 @@
 import React, { useState } from 'react';
 import RightIcon from 'assets/images/icons/right.svg';
-import { getPriority } from 'contants';
-import { Button } from '@components/index';
+import { getPriority, initialAddresses } from 'contants';
+import { Button, Input } from '@components/index';
 import Hint from './Hint';
 import ServiceFee from './ServiceFee';
+import Addresses from './Addresses';
 import styles from './styles.module.css';
-
-const initialAddresses = [{
-  address: '',
-  delay: 0,
-  percent: 100,
-}];
 
 function CreateOrder() {
   const [addresses, setAddresses] = useState(initialAddresses);
@@ -27,9 +22,10 @@ function CreateOrder() {
 
       <div className={styles.form}>
         <div>
-          <h5>
-            Enter receiver's bitcoin address
-          </h5>
+          <Addresses
+            addresses={addresses}
+            setAddresses={setAddresses}
+          />
         </div>
 
         <div>
@@ -44,6 +40,15 @@ function CreateOrder() {
           <h5>
             Enter mix code
           </h5>
+
+          <div className={styles.mixCode}>
+            <Input
+              fullWidth
+              value={mixCode}
+              onChange={(e) => setMixCode(e.target.value)}
+              placeholder="mix code"
+            />
+          </div>
         </div>
 
         <Button

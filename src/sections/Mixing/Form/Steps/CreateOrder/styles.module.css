@@ -11,3 +11,7 @@
     height: 17px;
     margin-left: calc(var(--uint) * 0.5);
 }
+
+.mixCode {
+    margin-top: calc(var(--uint) * 1);
+}

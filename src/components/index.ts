@@ -4,6 +4,7 @@ import Link from './Link';
 import Header from './Header';
 import Footer from './Footer';
 import Button from './Button';
+import Input from './Input';
 import Loader from './Loader';
 
 export {
@@ -13,5 +14,6 @@ export {
   Header,
   Footer,
   Button,
+  Input,
   Loader,
 };

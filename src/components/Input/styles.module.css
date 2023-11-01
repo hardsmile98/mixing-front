@@ -1,0 +1,29 @@
+.label {
+    font-size: var(--body2);
+    color: var(--grey);
+    margin-bottom: calc(var(--uint));
+}
+
+.root {
+    border: none;
+    outline: none;
+    border-radius: var(--uint);
+    min-height: 45px;
+    padding: calc(var(--uint)) calc(var(--uint) * 2);
+    background: var(--bg-input);
+    color: var(--white);
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.error {
+    border: 1px solid var(--error);
+}
+
+.errorMessage {
+    font-size: var(--body2);
+    margin-top: calc(var(--uint));
+    color: var(--error);
+}

@@ -15,6 +15,13 @@ const getPriority = (feePercent: number) => {
   }
 };
 
+const initialAddresses = [{
+  address: '',
+  delay: 0,
+  percent: 100,
+}];
+
 export {
   getPriority,
+  initialAddresses,
 };
