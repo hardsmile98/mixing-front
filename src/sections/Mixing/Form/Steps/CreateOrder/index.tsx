@@ -41,7 +41,9 @@ function CreateOrder() {
         </div>
 
         <div>
-          mix Code
+          <h5>
+            Enter mix code
+          </h5>
         </div>
 
         <Button
