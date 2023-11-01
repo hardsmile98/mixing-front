@@ -5,3 +5,9 @@
 .form > div {
     margin-bottom: calc(var(--uint) * 4);
 }
+
+.button svg {
+    width: 17px;
+    height: 17px;
+    margin-left: calc(var(--uint) * 0.5);
+}

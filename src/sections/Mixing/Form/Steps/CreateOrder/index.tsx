@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import RightIcon from 'assets/images/icons/right.svg';
 import { getPriority } from 'contants';
 import { Button } from '@components/index';
 import Hint from './Hint';
@@ -43,8 +44,12 @@ function CreateOrder() {
           mix Code
         </div>
 
-        <Button fullWidth>
+        <Button
+          fullWidth
+          className={styles.button}
+        >
           Сontinue
+          <RightIcon />
         </Button>
       </div>
     </>
