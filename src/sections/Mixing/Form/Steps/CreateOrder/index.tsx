@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getPriority } from 'contants';
+import { Button } from '@components/index';
 import Hint from './Hint';
 import ServiceFee from './ServiceFee';
 import styles from './styles.module.css';
@@ -12,7 +13,7 @@ const initialAddresses = [{
 
 function CreateOrder() {
   const [addresses, setAddresses] = useState(initialAddresses);
-  const [feePercent, setFeePercent] = useState<number>(1.3);
+  const [feePercent, setFeePercent] = useState(1.3);
   const [mixCode, setMixCode] = useState('');
 
   const priority = getPriority(feePercent);
@@ -41,6 +42,10 @@ function CreateOrder() {
         <div>
           mix Code
         </div>
+
+        <Button fullWidth>
+          Сontinue
+        </Button>
       </div>
     </>
   );
