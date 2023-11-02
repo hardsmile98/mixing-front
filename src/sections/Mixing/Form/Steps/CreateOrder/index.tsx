@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { validate } from 'bitcoin-address-validation';
 import RightIcon from 'assets/images/icons/right.svg';
 import { getPriority, initialAddresses } from 'contants';
 import { Button, Input } from '@components/index';
@@ -13,6 +14,22 @@ function CreateOrder() {
   const [mixCode, setMixCode] = useState('');
 
   const priority = getPriority(feePercent);
+
+  const createOrder = () => {
+    const filteredAddresses = addresses.map((item) => ({
+      ...item,
+      error: !validate(item.address),
+    }));
+
+    setAddresses(filteredAddresses);
+
+    const isInvalid = filteredAddresses.some((item) => item.error);
+
+    if (isInvalid) return;
+
+    // SEND DATA
+    const send = true;
+  };
 
   return (
     <>
@@ -54,6 +71,7 @@ function CreateOrder() {
         <Button
           fullWidth
           className={styles.button}
+          onClick={createOrder}
         >
           Сontinue
           <RightIcon />
