@@ -16,6 +16,7 @@ const sliderStyles = {
     boxShadow: 'none',
   },
   track: { background: 'var(--primary)' },
+  rail: { backgroundColor: 'var(--grey1)' },
 };
 
 interface Props {
@@ -52,6 +53,7 @@ function ServiceFee({
           styles={{
             handle: sliderStyles.handle,
             track: sliderStyles.track,
+            rail: sliderStyles.rail,
           }}
           step={0.01}
           min={0.5}

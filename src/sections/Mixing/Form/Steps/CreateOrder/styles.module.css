@@ -1,9 +1,9 @@
 .hint {
-    margin-bottom: calc(var(--uint) * 4);
+    margin-bottom: calc(var(--uint) * 5);
 }
 
 .form > div:not(:last-of-type) {
-    margin-bottom: calc(var(--uint) * 4);
+    margin-bottom: calc(var(--uint) * 5);
 }
 
 .button svg {

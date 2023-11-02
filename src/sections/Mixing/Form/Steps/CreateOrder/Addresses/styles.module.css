@@ -20,8 +20,8 @@
 .addressActions {
     display: flex;
     align-items: center;
-    max-width: 200px;
-    min-width: 200px;
+    max-width: 204px;
+    min-width: 204px;
     gap: var(--uint)
 }
 
@@ -38,15 +38,28 @@
 }
 
 .delay {
-    text-align: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--white);
     min-width: 50px;
-    margin-right: var(--uint);
-    padding-right: var(--uint);
-    border-right: 1px solid var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delay svg {
+    margin-left: calc(var(--uint) * 0.5);
+    width: 20px;
+    height: 20px;
 }
 
 .percent {
-    min-width: 50px;
+    margin-left: var(--uint);
+    padding-left: var(--uint);
+    border-left: 1px solid var(--white);
+    min-width: 70px;
     text-align: center;
 }
 
@@ -56,6 +69,7 @@
 }
 
 .delete {
+    flex-shrink: 0;
     transition: 0.3s all ease;
     display: flex;
     align-items: center;
@@ -77,4 +91,16 @@
 .delete svg {
     width: 28px;
     height: 28px;
+}
+
+.distribution {
+    padding: calc(var(--uint) * 3);
+    padding-bottom: calc(var(--uint) * 4);
+    background: var(--bg);
+    border-radius: var(--uint);
+    margin-top: calc(var(--uint) * 2);
+}
+
+.distribution p {
+    margin-bottom: calc(var(--uint) * 1);
 }

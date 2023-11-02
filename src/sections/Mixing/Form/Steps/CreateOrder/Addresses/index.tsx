@@ -1,9 +1,27 @@
 import React from 'react';
+import Slider from 'rc-slider';
 import AddIcon from 'assets/images/icons/add.svg';
 import CloseIcon from 'assets/images/icons/close.svg';
+import DownIcon from 'assets/images/icons/down.svg';
 import { initialAddresses } from 'contants';
 import { Button, Input } from '@components/index';
 import styles from './styles.module.css';
+
+const sliderStyles = {
+  dotStyle: { borderColor: 'var(--grey)', backgroundColor: 'var(--grey)' },
+  activeDotStyle: { borderColor: 'var(--grey)', backgroundColor: 'var(--grey)' },
+  handle: {
+    opacity: 1,
+    border: 'none',
+    width: '12px',
+    height: '12px',
+    marginTop: '-4px',
+    background: 'var(--primary)',
+    boxShadow: 'none',
+  },
+  track: { background: 'var(--grey1)' },
+  rail: { backgroundColor: 'var(--grey1)' },
+};
 
 type AddressesType = typeof initialAddresses;
 
@@ -17,24 +35,38 @@ function Addresses({ addresses, setAddresses }: Props) {
 
   const enterAddress = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
     setAddresses((prev) => {
-      const state = [...prev];
-      state[index] = {
-        ...state[index],
+      const newState = [...prev];
+      newState[index] = {
+        ...newState[index],
         address: e.target.value,
       };
 
-      return state;
+      return newState;
     });
   };
 
   const addAddress = () => {
     if (isLimitAddresses) return;
 
-    setAddresses((prev) => [...prev, ...initialAddresses]);
+    setAddresses((prev) => {
+      const newState = [...prev, ...initialAddresses].map((item) => ({
+        ...item,
+        percent: Number((100 / (prev.length + 1)).toFixed(2)),
+      }));
+
+      return newState;
+    });
   };
 
   const deleteAddress = (index: number) => {
-    setAddresses((prev) => prev.filter((_, i) => index !== i));
+    setAddresses((prev) => {
+      const newState = prev.filter((_, i) => index !== i).map((item) => ({
+        ...item,
+        percent: Number((100 / (prev.length - 1)).toFixed(2)),
+      }));
+
+      return newState;
+    });
   };
 
   return (
@@ -65,9 +97,13 @@ function Addresses({ addresses, setAddresses }: Props) {
 
             <div className={styles.addressActions}>
               <div className={styles.addressStats}>
-                <div className={styles.delay}>
+                <button
+                  type="button"
+                  className={styles.delay}
+                >
                   {`${item.delay}h`}
-                </div>
+                  <DownIcon />
+                </button>
 
                 <div className={styles.percent}>
                   {`${item.percent}%`}
@@ -97,6 +133,34 @@ function Addresses({ addresses, setAddresses }: Props) {
         <AddIcon />
         Add address
       </Button>
+
+      {addresses.length > 1 && (
+        <div className={styles.distribution}>
+          <p>
+            Select distribution
+          </p>
+
+          <Slider
+            range
+            min={0}
+            max={100}
+            step={0.01}
+            allowCross={false}
+            marks={{
+              0: '0%',
+              100: '100%',
+            }}
+            dotStyle={sliderStyles.dotStyle}
+            activeDotStyle={sliderStyles.activeDotStyle}
+            styles={{
+              handle: sliderStyles.handle,
+              track: sliderStyles.track,
+              rail: sliderStyles.rail,
+            }}
+            value={addresses.map((item) => item.percent)}
+          />
+        </div>
+      )}
     </>
   );
 }

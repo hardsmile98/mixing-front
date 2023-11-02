@@ -5,7 +5,7 @@
 }
 
 .path {
-    margin-bottom: calc(var(--uint) * 4);
+    margin-bottom: calc(var(--uint) * 5);
 }
 
 @media only screen and (max-width: 600px) {
