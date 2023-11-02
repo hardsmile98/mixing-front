@@ -1,11 +1,10 @@
 import React from 'react';
 import Slider from 'rc-slider';
 import AddIcon from 'assets/images/icons/add.svg';
-import CloseIcon from 'assets/images/icons/close.svg';
-import DownIcon from 'assets/images/icons/down.svg';
 import { initialAddresses } from 'contants';
-import { Button, Input } from '@components/index';
+import { Button } from '@components/index';
 import styles from './styles.module.css';
+import Address from './Address';
 
 const sliderStyles = {
   dotStyle: { borderColor: 'var(--grey)', backgroundColor: 'var(--grey)' },
@@ -69,6 +68,18 @@ function Addresses({ addresses, setAddresses }: Props) {
     });
   };
 
+  const changeDelay = (value: number | number[], index: number) => {
+    setAddresses((prev) => {
+      const newState = [...prev];
+      newState[index] = {
+        ...newState[index],
+        delay: Number(value),
+      };
+
+      return newState;
+    });
+  };
+
   return (
     <>
       <h5>
@@ -81,46 +92,14 @@ function Addresses({ addresses, setAddresses }: Props) {
 
       <div className={styles.addresses}>
         {addresses.map((item, index) => (
-          <div
+          <Address
             key={index}
-            className={styles.addressWrap}
-          >
-            <Input
-              className={styles.address}
-              value={item.address}
-              onChange={(e) => enterAddress(e, index)}
-              fullWidth
-              error={item.error}
-              errorMessage="Please enter a valid Bitcoin address"
-              placeholder={`#${index + 1} Receiving address`}
-            />
-
-            <div className={styles.addressActions}>
-              <div className={styles.addressStats}>
-                <button
-                  type="button"
-                  className={styles.delay}
-                >
-                  {`${item.delay}h`}
-                  <DownIcon />
-                </button>
-
-                <div className={styles.percent}>
-                  {`${item.percent}%`}
-                </div>
-              </div>
-
-              {index !== 0 && (
-                <button
-                  className={styles.delete}
-                  type="button"
-                  onClick={() => deleteAddress(index)}
-                >
-                  <CloseIcon />
-                </button>
-              )}
-            </div>
-          </div>
+            address={item}
+            index={index}
+            changeDelay={changeDelay}
+            enterAddress={enterAddress}
+            deleteAddress={deleteAddress}
+          />
         ))}
       </div>
 

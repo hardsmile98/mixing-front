@@ -12,85 +12,9 @@
     margin-bottom: calc(var(--uint) * 1);
 }
 
-.addressWrap {
-    display: flex;
-    gap: var(--uint)
-}
-
-.addressActions {
-    display: flex;
-    align-items: center;
-    max-width: 204px;
-    min-width: 204px;
-    gap: var(--uint)
-}
-
-.addressStats {
-    min-height: 45px;
-    font-weight: 500;
-    font-size: var(--body2);
-    border-radius: var(--uint);
-    background: var(--bg);
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    padding: 0 calc(var(--uint) * 2);
-}
-
-.delay {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: transparent;
-    color: var(--white);
-    min-width: 50px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.delay svg {
-    margin-left: calc(var(--uint) * 0.5);
-    width: 20px;
-    height: 20px;
-}
-
-.percent {
-    margin-left: var(--uint);
-    padding-left: var(--uint);
-    border-left: 1px solid var(--white);
-    min-width: 70px;
-    text-align: center;
-}
-
 .addButton svg {
     width: 20px;
     height: 20px;
-}
-
-.delete {
-    flex-shrink: 0;
-    transition: 0.3s all ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    border: none;
-    outline: none;
-    color: var(--delete);
-    background: transparent;
-}
-
-.delete:hover {
-    background-color: var(--delete-hover);
-}
-
-.delete svg {
-    width: 28px;
-    height: 28px;
 }
 
 .distribution {

@@ -1,0 +1,98 @@
+.root {
+    display: flex;
+    gap: var(--uint)
+}
+
+.addressActions {
+    display: flex;
+    align-items: center;
+    max-width: 204px;
+    min-width: 204px;
+    gap: var(--uint)
+}
+
+.addressStats {
+    min-height: 45px;
+    font-weight: 500;
+    font-size: var(--body2);
+    border-radius: var(--uint);
+    background: var(--bg);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    padding: 0 calc(var(--uint) * 2);
+}
+
+.delaySelect {
+    position: relative;
+}
+
+.delaySlider {
+    width: 100%;
+    min-width: 240px;
+    z-index: 10;
+    padding: calc(var(--uint) * 1.5) calc(var(--uint) * 2);
+    padding-bottom: calc(var(--uint) * 3);
+    border-radius: var(--uint);
+    display: none;
+    position: absolute;
+    background: var(--bg2);
+    left: 50%;
+    top: 40px;
+    transform: translate(-50%);
+}
+
+.visible {
+    display: block;
+}
+
+.delay {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--white);
+    min-width: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delay svg {
+    margin-left: calc(var(--uint) * 0.5);
+    width: 20px;
+    height: 20px;
+}
+
+.percent {
+    margin-left: var(--uint);
+    padding-left: var(--uint);
+    border-left: 1px solid var(--white);
+    min-width: 70px;
+    text-align: center;
+}
+
+.delete {
+    flex-shrink: 0;
+    transition: 0.3s all ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    color: var(--delete);
+    background: transparent;
+}
+
+.delete:hover {
+    background-color: var(--delete-hover);
+}
+
+.delete svg {
+    width: 28px;
+    height: 28px;
+}
