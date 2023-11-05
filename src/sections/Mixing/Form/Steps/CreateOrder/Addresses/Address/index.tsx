@@ -92,7 +92,7 @@ function Address({
           </div>
 
           <div className={styles.percent}>
-            {`${address.percent}%`}
+            {`${address.percent.toFixed(1)}%`}
           </div>
         </div>
 

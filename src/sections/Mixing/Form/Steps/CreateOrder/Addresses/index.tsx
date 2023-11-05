@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Slider from 'rc-slider';
 import AddIcon from 'assets/images/icons/add.svg';
 import { initialAddresses } from 'contants';
@@ -50,7 +50,7 @@ function Addresses({ addresses, setAddresses }: Props) {
     setAddresses((prev) => {
       const newState = [...prev, ...initialAddresses].map((item) => ({
         ...item,
-        percent: Number((100 / (prev.length + 1)).toFixed(2)),
+        percent: Number((100 / (prev.length + 1))),
       }));
 
       return newState;
@@ -61,7 +61,7 @@ function Addresses({ addresses, setAddresses }: Props) {
     setAddresses((prev) => {
       const newState = prev.filter((_, i) => index !== i).map((item) => ({
         ...item,
-        percent: Number((100 / (prev.length - 1)).toFixed(2)),
+        percent: Number((100 / (prev.length - 1))),
       }));
 
       return newState;
@@ -79,6 +79,37 @@ function Addresses({ addresses, setAddresses }: Props) {
       return newState;
     });
   };
+
+  const changeDistribution = (value: number | number[]) => {
+    const arrayValue = value as number[];
+
+    if (arrayValue[arrayValue.length - 1] !== 100) return;
+    if (arrayValue[0] < 1) return;
+
+    setAddresses((prev) => prev.map((address, index) => {
+      if (index === 0) {
+        return {
+          ...address,
+          percent: arrayValue[index],
+        };
+      }
+
+      return {
+        ...address,
+        percent: arrayValue[index] - arrayValue[index - 1],
+      };
+    }));
+  };
+
+  const distribution = useMemo(() => addresses
+    .reduce((prev: number[], cur, index) => {
+      if (index === 0) return [cur.percent];
+
+      return [
+        ...prev,
+        cur.percent + prev[index - 1],
+      ];
+    }, []), [addresses]);
 
   return (
     <>
@@ -123,12 +154,13 @@ function Addresses({ addresses, setAddresses }: Props) {
             range
             min={0}
             max={100}
-            step={0.01}
+            step={0.1}
             allowCross={false}
             marks={{
               0: '0%',
               100: '100%',
             }}
+            onChange={changeDistribution}
             dotStyle={sliderStyles.dotStyle}
             activeDotStyle={sliderStyles.activeDotStyle}
             styles={{
@@ -136,7 +168,7 @@ function Addresses({ addresses, setAddresses }: Props) {
               track: sliderStyles.track,
               rail: sliderStyles.rail,
             }}
-            value={addresses.map((item) => item.percent)}
+            value={distribution}
           />
         </div>
       )}
