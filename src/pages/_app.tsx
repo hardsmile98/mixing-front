@@ -1,4 +1,6 @@
 import React from 'react';
+import { store } from 'store/store';
+import { Provider } from 'react-redux';
 import 'rc-slider/assets/index.css';
 import 'assets/styles/normalize.css';
 import 'assets/styles/fonts.css';
@@ -8,18 +10,20 @@ import { Layout, Header, Footer } from '@components/index';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <Layout
-      title="LEPRO MIXER - BEST CRYPTO MIXER"
-      description="LEPRO MIXER - BEST CRYPTO MIXER"
-      keywords="LEPRO, CRYPTO MIXER, BETST BITCOIN MIXER"
-    >
-      <Header />
+    <Provider store={store}>
+      <Layout
+        title="LEPRO MIXER - BEST CRYPTO MIXER"
+        description="LEPRO MIXER - BEST CRYPTO MIXER"
+        keywords="LEPRO, CRYPTO MIXER, BETST BITCOIN MIXER"
+      >
+        <Header />
 
-      <main>
-        <Component {...pageProps} />
-      </main>
+        <main>
+          <Component {...pageProps} />
+        </main>
 
-      <Footer />
-    </Layout>
+        <Footer />
+      </Layout>
+    </Provider>
   );
 }

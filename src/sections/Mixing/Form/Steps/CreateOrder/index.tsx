@@ -3,6 +3,7 @@ import { validate } from 'bitcoin-address-validation';
 import RightIcon from 'assets/images/icons/right.svg';
 import { getPriority, initialAddresses } from 'contants';
 import { Button, Input } from '@components/index';
+import { useCreateOrderMutation } from 'api/publicApi';
 import Hint from './Hint';
 import ServiceFee from './ServiceFee';
 import Addresses from './Addresses';
@@ -14,6 +15,10 @@ function CreateOrder() {
   const [mixCode, setMixCode] = useState('');
 
   const priority = getPriority(feePercent);
+
+  const [create, {
+    isLoading,
+  }] = useCreateOrderMutation();
 
   const createOrder = () => {
     const filteredAddresses = addresses.map((item) => ({
@@ -27,8 +32,11 @@ function CreateOrder() {
 
     if (isInvalid) return;
 
-    // SEND DATA
-    const send = true;
+    create({
+      addresses,
+      feePercent,
+      mixCode,
+    });
   };
 
   return (
@@ -72,6 +80,7 @@ function CreateOrder() {
           fullWidth
           className={styles.button}
           onClick={createOrder}
+          loading={isLoading}
         >
           Сontinue
           <RightIcon />
