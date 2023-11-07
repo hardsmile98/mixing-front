@@ -5,10 +5,15 @@ const orderSlice = createSlice({
   name: 'order',
   initialState: {
     status: 'none',
+    uuid: null,
+    mixCode: null,
+    feePercent: null,
+    transferAddress: null,
+    recipientAddresses: null,
   },
   reducers: {
-    setStatus: (state, { payload }) => {
-      state.status = payload;
+    setOrder: (state, { payload }) => {
+      state = payload;
     },
   },
 });
@@ -16,5 +21,5 @@ const orderSlice = createSlice({
 export default orderSlice.reducer;
 
 export const {
-  setStatus,
+  setOrder,
 } = orderSlice.actions;

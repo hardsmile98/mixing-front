@@ -1,5 +1,5 @@
 import React from 'react';
-import { store } from 'store/store';
+import { wrapper } from 'store/store';
 import { Provider } from 'react-redux';
 import 'rc-slider/assets/index.css';
 import 'assets/styles/normalize.css';
@@ -8,7 +8,15 @@ import 'assets/styles/theme.css';
 import type { AppProps } from 'next/app';
 import { Layout, Header, Footer } from '@components/index';
 
-export default function App({ Component, pageProps }: AppProps) {
+interface PageProps {
+  pageProps: {
+    id: number;
+  };
+}
+
+export default function App({ Component, ...rest }: Omit<AppProps, 'pageProps'> & PageProps) {
+  const { store, props } = wrapper.useWrappedStore(rest);
+
   return (
     <Provider store={store}>
       <Layout
@@ -19,7 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Header />
 
         <main>
-          <Component {...pageProps} />
+          <Component {...props.pageProps} />
         </main>
 
         <Footer />
