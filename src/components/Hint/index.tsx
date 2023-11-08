@@ -2,7 +2,11 @@ import React from 'react';
 import WarningIcon from 'assets/images/icons/warning.svg';
 import styles from './styles.module.css';
 
-function Hint() {
+interface Props {
+  text: string
+}
+
+function Hint({ text }: Props) {
   return (
     <p className={styles.root}>
       <WarningIcon />
@@ -10,8 +14,8 @@ function Hint() {
       <span>
         Attention:
       </span>
-      {` Make sure you use addresses that do not
-      have any links to you. Or best, create a new wallet address.`}
+      {' '}
+      {text}
     </p>
   );
 }

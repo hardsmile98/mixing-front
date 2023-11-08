@@ -6,7 +6,7 @@ interface Props {
   type?: InputHTMLAttributes<HTMLInputElement>['type']
   disabled?: InputHTMLAttributes<HTMLInputElement>['disabled']
   placeholder?: InputHTMLAttributes<HTMLInputElement>['placeholder']
-  onChange: InputHTMLAttributes<HTMLInputElement>['onChange']
+  onChange?: InputHTMLAttributes<HTMLInputElement>['onChange']
   fullWidth?: boolean
   label?: string
   error?: boolean

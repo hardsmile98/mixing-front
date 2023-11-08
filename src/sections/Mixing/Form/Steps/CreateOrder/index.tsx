@@ -2,12 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { validate } from 'bitcoin-address-validation';
 import RightIcon from 'assets/images/icons/right.svg';
 import { getPriority, initialAddresses } from 'contants';
-import { Button, Input } from '@components/index';
+import { Button, Input, Hint } from '@components/index';
 import { useCreateOrderMutation } from 'api/publicApi';
 import { useDispatch } from 'react-redux';
 import { setOrder } from 'store/slices/order';
 import { useRouter } from 'next/router';
-import Hint from './Hint';
 import ServiceFee from './ServiceFee';
 import Addresses from './Addresses';
 import styles from './styles.module.css';
@@ -64,7 +63,9 @@ function CreateOrder() {
   return (
     <>
       <div className={styles.hint}>
-        <Hint />
+        <Hint text="Make sure you use addresses that do not
+        have any links to you. Or best, create a new wallet address."
+        />
       </div>
 
       <div className={styles.form}>

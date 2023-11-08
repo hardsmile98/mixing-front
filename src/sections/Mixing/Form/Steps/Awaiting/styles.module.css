@@ -1,0 +1,3 @@
+.hint {
+    margin-bottom: calc(var(--uint) * 5);
+}

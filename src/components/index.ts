@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Button from './Button';
 import Input from './Input';
 import Loader from './Loader';
+import Hint from './Hint';
 
 export {
   Layout,
@@ -16,4 +17,5 @@ export {
   Button,
   Input,
   Loader,
+  Hint,
 };
