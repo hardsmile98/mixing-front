@@ -3,12 +3,12 @@
 }
 
 .form > div:not(:last-of-type) {
-    margin-bottom: calc(var(--uint) * 5);
+    margin-bottom: calc(var(--uint) * 4);
 }
 
 .button svg {
-    width: 17px;
-    height: 17px;
+    width: 20px;
+    height: 20px;
     margin-left: calc(var(--uint) * 0.5);
 }
 

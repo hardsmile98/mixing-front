@@ -1,3 +1,88 @@
 .hint {
     margin-bottom: calc(var(--uint) * 5);
 }
+
+.form > div:not(:last-of-type) {
+    margin-bottom: calc(var(--uint) * 4);
+}
+
+.wrap > h6 {
+    margin-bottom: var(--uint);
+}
+
+.letterDescription {
+    margin-top: calc(var(--uint) * 0.5);
+    margin-bottom: calc(var(--uint) * 1);
+    font-size: var(--body2);
+}
+
+.download {
+    width: 100%;
+    border-radius: var(--uint);
+    padding: calc(var(--uint) * 1.5) calc(var(--uint) * 4);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s all ease;
+    min-height: 45px;
+    background-color: var(--primary);
+    color: var(--black);
+}
+
+.download:not(:disabled):hover {
+    background-color: var(--primary-hover);
+    color: var(--black);
+}
+
+.download svg {
+    width: 24px;
+    height: 24px;
+}
+
+.requisites {
+    margin-top: var(--uint);
+    display: flex;
+    align-items: center;
+    column-gap: calc(var(--uint) * 3);
+}
+
+.address {
+    flex-grow: 1;
+}
+
+.address p {
+    margin-bottom: calc(var(--uint) * 0.5);
+    font-size: var(--body2);
+}
+
+.qr {
+    flex-shrink: 0;
+    width: 100px;
+}
+
+.qr svg {
+    height: 100%;
+    width: 100%;
+}
+
+.check {
+    margin-top: calc(var(--uint) * 2);
+}
+
+.check svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media only screen and (max-width: 600px) {
+    .requisites {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .address {
+        margin-top: var(--uint);
+        width: 100%;
+    }
+}

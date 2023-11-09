@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import QRCode from 'react-qr-code';
+import DownloadIcon from 'assets/images/icons/download.svg';
+import RefreshIcon from 'assets/images/icons/refresh.svg';
 import { Hint, Input, Button } from '@components/index';
 import { useSelector } from 'react-redux';
 import { RootState } from 'store/store';
@@ -12,6 +14,10 @@ function Awaiting() {
 
   const letterLink = `${getEnvProps.apiUrl}/api/letters?uuid=${order.uuid}`;
 
+  const origin = typeof window !== 'undefined' && window.location.origin
+    ? window.location.origin
+    : '';
+
   return (
     <>
       <div className={styles.hint}>
@@ -21,50 +27,54 @@ function Awaiting() {
         />
       </div>
 
-      <div>
-        <div>
+      <div className={styles.form}>
+        <div className={styles.wrap}>
           <h6>
             Order status link
           </h6>
 
           <Input
             fullWidth
-            value="123"
+            value={`${origin}?uuid=${order?.uuid}`}
             disabled
           />
         </div>
 
-        <div>
+        <div className={styles.wrap}>
           <h5>
             Letter of guarantee
           </h5>
 
-          <p>
+          <p className={styles.letterDescription}>
             It is the only proof that the mixing belongs to you.
           </p>
 
           <Link
             href={letterLink}
             download
+            className={styles.download}
             target="_blank"
           >
-            Download
+            <DownloadIcon />
+            {' Download'}
           </Link>
         </div>
 
-        <div>
+        <div className={styles.wrap}>
           <h5>
             Transfer bitcoins
           </h5>
 
-          <div>
-            <div>
-              <QRCode value={order.transferAddress || ''} />
+          <div className={styles.requisites}>
+            <div className={styles.qr}>
+              <QRCode
+                value={order.transferAddress || ''}
+              />
             </div>
 
-            <div>
+            <div className={styles.address}>
               <p>
-                Transfer between 0.001 BTC and 1000.00 BTC to the following address :
+                Transfer between 0.001 BTC and 100.00 BTC to the following address :
               </p>
 
               <Input
@@ -76,8 +86,9 @@ function Awaiting() {
           </div>
         </div>
 
-        <Button onClick={() => {}}>
-          Check transactions
+        <Button className={styles.check} fullWidth onClick={() => {}}>
+          <RefreshIcon />
+          {' Check transactions'}
         </Button>
       </div>
     </>
