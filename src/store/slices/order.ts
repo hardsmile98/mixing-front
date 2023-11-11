@@ -17,6 +17,11 @@ const orderSlice = createSlice({
       state = { ...payload };
       return state;
     },
+
+    setStatus: (state, { payload }) => {
+      state.status = payload;
+      return state;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(HYDRATE, (state, action: any) => ({
@@ -30,4 +35,5 @@ export default orderSlice.reducer;
 
 export const {
   setOrder,
+  setStatus,
 } = orderSlice.actions;

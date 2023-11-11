@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import QRCode from 'react-qr-code';
 import DownloadIcon from 'assets/images/icons/download.svg';
 import RefreshIcon from 'assets/images/icons/refresh.svg';
 import { Hint, Input, Button } from '@components/index';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/store';
 import getEnvProps from 'utils/getEnvProps';
+import { useCheckOrderQuery } from 'api/publicApi';
+import { setStatus } from 'store/slices/order';
 import styles from './styles.module.css';
 
 function Awaiting() {
-  const order = useSelector((state:RootState) => state.order);
+  const dispatch = useDispatch();
+
+  const order = useSelector((state: RootState) => state.order);
 
   const letterLink = `${getEnvProps.apiUrl}/api/letters?uuid=${order.uuid}`;
 
@@ -18,12 +22,35 @@ function Awaiting() {
     ? window.location.origin
     : '';
 
+  const {
+    data,
+    isLoading,
+    isFetching,
+    isSuccess,
+    refetch,
+  } = useCheckOrderQuery({
+    uuid: order.uuid || '',
+  }, {
+    pollingInterval: Number(getEnvProps.intervalCheck),
+  });
+
+  const checkStatus = data?.status;
+  const orderStatus = order?.status;
+
+  useEffect(() => {
+    if (isSuccess && checkStatus !== orderStatus) {
+      dispatch(setStatus(checkStatus));
+    }
+  }, [isSuccess, checkStatus, orderStatus]);
+
+  const isChecking = isLoading || isFetching;
+
   return (
     <>
       <div className={styles.hint}>
         <Hint text="If no funds are received within the remaining time,
-        this link will be deleted and the generated address will become invalid.
-        Please be aware of the minimum deposit amount and only make one deposit transaction."
+          this link will be deleted and the generated address will become invalid.
+          Please be aware of the minimum deposit amount and only make one deposit transaction."
         />
       </div>
 
@@ -86,7 +113,13 @@ function Awaiting() {
           </div>
         </div>
 
-        <Button className={styles.check} fullWidth onClick={() => {}}>
+        <Button
+          className={styles.check}
+          fullWidth
+          disabled={isChecking}
+          loading={isChecking}
+          onClick={refetch}
+        >
           <RefreshIcon />
           {' Check transactions'}
         </Button>

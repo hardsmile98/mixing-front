@@ -22,4 +22,5 @@ export const publicApi = createApi({
 
 export const {
   useCreateOrderMutation,
+  useCheckOrderQuery,
 } = publicApi;

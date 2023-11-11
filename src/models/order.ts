@@ -14,6 +14,11 @@ interface CreateOrderResponse {
   success: boolean,
 }
 
+interface CheckOrderResponse {
+  status: Status
+  success: boolean
+}
+
 interface Address {
   address: string
   delay: number
@@ -29,5 +34,6 @@ interface CreateOrderDto {
 export type {
   CreateOrderDto,
   CreateOrderResponse,
+  CheckOrderResponse,
   StatusExtended,
 };
