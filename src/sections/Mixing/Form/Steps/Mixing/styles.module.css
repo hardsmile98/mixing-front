@@ -1,0 +1,12 @@
+.hint {
+    margin-bottom: calc(var(--uint) * 5);
+}
+
+
+.wrap {
+    text-align: center;
+}
+
+.wrap > h5{
+    margin-bottom: calc(var(--uint) * 1);
+}
