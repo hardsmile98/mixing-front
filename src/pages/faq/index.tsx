@@ -1,9 +1,8 @@
 import React from 'react';
+import { Faq as FaqSection } from '@sections/index';
 
 function Faq() {
-  return (
-    <div>Faq</div>
-  );
+  return <FaqSection />;
 }
 
 export default Faq;

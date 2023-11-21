@@ -6,7 +6,12 @@ import 'assets/styles/normalize.css';
 import 'assets/styles/fonts.css';
 import 'assets/styles/theme.css';
 import type { AppProps } from 'next/app';
-import { Layout, Header, Footer } from '@components/index';
+import {
+  Layout,
+  Header,
+  Footer,
+  Container,
+} from '@components/index';
 
 interface PageProps {
   pageProps: {
@@ -27,7 +32,9 @@ export default function App({ Component, ...rest }: Omit<AppProps, 'pageProps'> 
         <Header />
 
         <main>
-          <Component {...props.pageProps} />
+          <Container>
+            <Component {...props.pageProps} />
+          </Container>
         </main>
 
         <Footer />

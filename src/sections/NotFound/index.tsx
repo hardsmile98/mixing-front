@@ -1,5 +1,4 @@
 import React from 'react';
-import { Container } from '@components/index';
 import Link from 'next/link';
 import styles from './styles.module.css';
 
@@ -9,20 +8,18 @@ function NotFound() {
       id="error"
       className={styles.root}
     >
-      <Container>
-        <div className={styles.wrap}>
-          <h1>
-            Page not found
-          </h1>
-          <p>
-            Unable to load. Something went wrong.
-          </p>
+      <div className={styles.wrap}>
+        <h1>
+          Page not found
+        </h1>
+        <p>
+          Unable to load. Something went wrong.
+        </p>
 
-          <Link href="/">
-            Back to home
-          </Link>
-        </div>
-      </Container>
+        <Link href="/">
+          Back to home
+        </Link>
+      </div>
     </section>
   );
 }

@@ -1,0 +1,47 @@
+.head {
+    text-align: center;
+    margin-bottom: calc(var(--uint) * 4);
+}
+
+.head h3 {
+    margin-bottom: calc(var(--uint) * 1);
+    color: var(--primary);
+}
+
+.head p {
+    color: var(--grey);
+}
+
+.list {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.item:not(:last-of-type) {
+    margin-bottom: calc(var(--uint) * 2);
+}
+
+.item {
+    padding: calc(var(--uint) * 4);
+    background-color: var(--bg1);
+    border-radius: var(--uint);
+    color: var(--grey);
+}
+
+.item > h6 {
+    margin-bottom: calc(var(--uint) * 1);
+    color: var(--white);
+}
+
+.item > ul {
+    padding-left: calc(var(--uint) * 2);
+}
+
+.item > ul > li {
+    list-style: disc;
+    display: list-item;
+}
+
+.item > ul > li::marker {
+    color: var(--primary);
+}
