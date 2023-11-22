@@ -1,4 +1,5 @@
 import React, { InputHTMLAttributes } from 'react';
+import CopyIcon from 'assets/images/icons/copy.svg';
 import styles from './styles.module.css';
 
 interface Props {
@@ -12,6 +13,7 @@ interface Props {
   error?: boolean
   errorMessage?: string
   className?: string
+  withCopy?: boolean
 }
 
 function Input({
@@ -25,6 +27,7 @@ function Input({
   error,
   errorMessage,
   className,
+  withCopy,
 }: Props) {
   return (
     <label htmlFor={label} className={`${fullWidth ? styles.fullWidth : ''}`}>
@@ -34,15 +37,27 @@ function Input({
         </p>
       )}
 
-      <input
-        id={label}
-        className={`${styles.root} ${fullWidth ? styles.fullWidth : ''} ${error ? styles.error : ''} ${className || ''}`}
-        type={type}
-        disabled={disabled}
-        placeholder={placeholder}
-        onChange={onChange}
-        value={value}
-      />
+      <div className={styles.wrap}>
+        <input
+          id={label}
+          className={`${styles.root} ${fullWidth ? styles.fullWidth : ''} ${error ? styles.error : ''} ${withCopy ? styles.withCopy : ''} ${className || ''}`}
+          type={type}
+          disabled={disabled}
+          placeholder={placeholder}
+          onChange={onChange}
+          value={value}
+        />
+
+        {withCopy && (
+          <button
+            className={styles.copy}
+            type="button"
+            onClick={() => navigator.clipboard.writeText(String(value))}
+          >
+            <CopyIcon />
+          </button>
+        )}
+      </div>
 
       {errorMessage && error && (
         <p className={styles.errorMessage}>

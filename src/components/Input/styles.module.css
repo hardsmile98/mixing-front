@@ -12,10 +12,49 @@
     padding: calc(var(--uint)) calc(var(--uint) * 2);
     background: var(--bg-input);
     color: var(--white);
+    text-overflow: ellipsis;
+}
+
+.withCopy {
+    padding-right: calc(var(--uint) * 6);
 }
 
 .fullWidth {
     width: 100%;
+}
+
+.wrap {
+    position: relative;
+}
+
+.copy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s all ease;
+    cursor: pointer;
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    outline: none;
+    background: transparent;
+    border-radius: calc(var(--uint) * 0.5);
+    color: var(--grey);
+    border: 1px solid var(--grey);
+    height: 28px;
+    width: 28px;
+}
+
+.copy svg {
+    width: 14px;
+    height: auto;
+}
+
+.copy:hover {
+    color: var(--white);
+    border-color: var(--white);
 }
 
 .error {

@@ -64,6 +64,7 @@ function Awaiting() {
             fullWidth
             value={`${origin}?uuid=${order?.uuid}`}
             disabled
+            withCopy
           />
         </div>
 
@@ -108,6 +109,7 @@ function Awaiting() {
                 fullWidth
                 disabled
                 value={order.transferAddress || ''}
+                withCopy
               />
             </div>
           </div>
